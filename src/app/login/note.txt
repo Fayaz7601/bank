@@ -1,0 +1,25 @@
+data sharing
+ data is shared b/w the html and ts file
+
+it will be called as follow from now
+html=view
+ts=component
+
+
+DATA BINDING
+  
+  1.one way binding=sharing will be only in one direction
+
+      1.1.component to view=data from ts to html file
+        1.1.1.string interpolation -symbol used is  {{}}
+               example in ts file and called in html
+        1.1.2.property binding- syntax:  [property]="value"      
+              example in ts file and called in html
+
+      1.2.view to component=data from html to ts file (important ,to tke data from input box)
+        1.2.1. event binding -syntax : (event name)="methodname()"       eg:click in button in html file and login methos in ts file
+        1.2.2. dollar event binding-syntax: (event name)="methodname($event)"  eg:access acnum and pass from input
+               
+               two events are (change) and (click)
+        1.2.3.event binding using template reference variable-syntax: #variablename 
+           
