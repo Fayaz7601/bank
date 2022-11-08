@@ -4,17 +4,18 @@
     <form action="">
         <div class="mt-2 pt-3">
             <label for="u1"></label>
-            <input (change)="acnumchange($event)" id="acid" type="text" name="acno"  class="form-control" [placeholder]="data">      
+            <input #acno  id="acid" type="text" name="acno"  class="form-control" [placeholder]="data">      
         </div>
         <div class="mt-2 pt-3">
             <label for="p1"></label>
-            <input (change)="pswchange($event)" id="pid" type="password" name="psw"  class="form-control" placeholder="password">
+            <input #psw  id="pid" type="password" name="psw"  class="form-control" placeholder="password">
         </div>
         <div class="text-center mt-2 pt-3">
-            <button  type="submit" (click)="login()" class="btn btn-success ">login</button>
+            <button  type="submit" (click)="login(acno,psw)" class="btn btn-success ">login</button>
         </div><br>
         <div class="text-center">Not Registered? <a class="text-danger" href="./registration.html">Register here</a></div>
-
+         
+        
 
 
     </form>

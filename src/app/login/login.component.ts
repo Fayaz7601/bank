@@ -27,39 +27,61 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   // creating methhod
-login(){
-// we are assingin acno and psw to not use this everytime for ease of use,down 
-var acno=this.acno
-var psw=this.psw
-var userdetails=this.userdetails
-// now we can use anco,psw etc and this is not needed
+// login(){
+// // we are assingin acno and psw to not use this everytime for ease of use,down 
+// var acno=this.acno
+// var psw=this.psw
+// var userdetails=this.userdetails
+// // now we can use anco,psw etc and this is not needed
 
-if(acno in userdetails){
-if(psw==userdetails[acno]['password']){
-  alert("login successfull")
-}
-else{
-  alert('incorrect password')
-}
-}
-else{
-  alert('user does not exist')
-}
+// if(acno in userdetails){
+// if(psw==userdetails[acno]['password']){
+//   alert("login successfull")
+// }
+// else{
+//   alert('incorrect password')
+// }
+// }
+// else{
+//   alert('user does not exist')
+// }
 
-  alert('login clicked')
-}
-acnumchange(event:any){
-  // we have specify datatype so it is given any and dollar is not required here in input
+//   alert('login clicked')
+// }
+login(a:any,b:any){
+  // template reference variable
+  // 7-11-22
+  var acno=a.value
+  var psw=b.value
+  var userdetails=this.userdetails
   
-  this.acno=event.target.value
-
-  // console.log(event.target.value);
-  // the value we need is inside the key event inside the target
-  // 4-11-22 -- 1 hr
+  if(acno in userdetails){
+  if(psw==userdetails[acno]['password']){
+    alert("login successfull")
+  }
+  else{
+    alert('incorrect password')
+  }
+  }
+  else{
+    alert('user does not exist')
+  }
   
-}
-pswchange(event:any){
-  this.psw=event.target.value
-// we now both pass and acno inputted by user,password in this.psw and acno in this.acno
-}
+    alert('login clicked')
+  }
+// acnumchange(event:any){
+  // these two mwthhods are for event binding not needed for template reference variable
+//   // we have specify datatype so it is given any and dollar is not required here in input
+  
+//   this.acno=event.target.value
+
+//   // console.log(event.target.value);
+//   // the value we need is inside the key event inside the target
+//   // 4-11-22 -- 1 hr
+  
+// }
+// pswchange(event:any){
+//   this.psw=event.target.value
+// // we now both pass and acno inputted by user,password in this.psw and acno in this.acno
+// }
 }

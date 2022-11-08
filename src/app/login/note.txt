@@ -21,5 +21,10 @@ DATA BINDING
         1.2.2. dollar event binding-syntax: (event name)="methodname($event)"  eg:access acnum and pass from input
                
                two events are (change) and (click)
-        1.2.3.event binding using template reference variable-syntax: #variablename 
+        1.2.3.event binding using template reference variable-syntax: #variablename   eg:in html file inpt boxes,balave in ts file login(acno,psw)
+
+
+   2.Two way binding techniques
+
+      2.1.ngModel      formsmodule(a module in ngModel)    
            
