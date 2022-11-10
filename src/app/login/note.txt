@@ -24,7 +24,38 @@ DATA BINDING
         1.2.3.event binding using template reference variable-syntax: #variablename   eg:in html file inpt boxes,balave in ts file login(acno,psw)
 
 
-   2.Two way binding techniques
+  2.Two way binding techniques=sharing will be in both direction
 
-      2.1.ngModel      formsmodule(a module in ngModel)    
-           
+       2.1.ngModel    -syntax : [(ngModel)]="value"
+                          Formsmodule(a module in ngModel) ,whenever we are using a module we have manually import in
+                          app.module.ts (import section)[7-11-22]
+
+                          eg: in html input box 
+
+
+
+
+
+  ROUTING IN ANGULAR                  
+
+  navigate by url (instaed of window.location)                                  
+         it is a method of class router
+
+ dependency injection =to share datas b/w two classes    
+ dependency injection is given inside constructor [in this program in login page]
+ access specifier(public/private)  [in this program login page ts file]
+ syntax : accessspecifier(private/public) variable :class
+ syntax to call : this.router.navigatebyurl('path of the required component')
+ since it is a variable and using it inside a class we have use this ,that is why this in above sentence
+
+
+if we need to give redirection in method we use navigate by url [eg inlogin.ts]
+if we need to give link in any path we use router link          [eg in login.html]
+
+
+
+
+ ANGULAR SERVICES
+     to store datas (redundant datas) [datas that are always in need]
+
+  to create a servce : ng g s servicename 

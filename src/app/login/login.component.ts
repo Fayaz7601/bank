@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   acno:any 
   psw:any
+  // when ngmodel is given data gien in html will automatically saved in this because any is given
 
   // creating a database,here obeject inside object,that is usedetails is the key of first object and inside element is value,inside that object there are other keys and values
   userdetails:any={
@@ -22,66 +24,34 @@ export class LoginComponent implements OnInit {
    1003:{acno:1003,username:"mega",password:123,balance:0}
   }
 // constructor is used to initialize oject at the time of creating,that is in this class first constuctor will work then  ngoninit() only then what we create will work
-  constructor() { }
+  constructor(private router:Router) { }
+//we have to give a access specifier when dependacy injection is given ,either private/public
+// normally we give private 
 
   ngOnInit(): void {
   }
-  // creating methhod
-// login(){
-// // we are assingin acno and psw to not use this everytime for ease of use,down 
-// var acno=this.acno
-// var psw=this.psw
-// var userdetails=this.userdetails
-// // now we can use anco,psw etc and this is not needed
+  // creating method
+login(){
+// we are assingin acno and psw to not use this everytime for ease of use,down 
+var acno=this.acno
+var psw=this.psw
+var userdetails=this.userdetails
+// now we can use anco,psw etc and this is not needed
 
-// if(acno in userdetails){
-// if(psw==userdetails[acno]['password']){
-//   alert("login successfull")
-// }
-// else{
-//   alert('incorrect password')
-// }
-// }
-// else{
-//   alert('user does not exist')
-// }
+if(acno in userdetails){
+if(psw==userdetails[acno]['password']){
+  alert("login successfull")
+  // redirection
+  this.router.navigateByUrl('dashboard')
+}
+else{
+  alert('incorrect password')
+}
+}
+else{
+  alert('user does not exist')
+}
 
-//   alert('login clicked')
-// }
-login(a:any,b:any){
-  // template reference variable
-  // 7-11-22
-  var acno=a.value
-  var psw=b.value
-  var userdetails=this.userdetails
-  
-  if(acno in userdetails){
-  if(psw==userdetails[acno]['password']){
-    alert("login successfull")
-  }
-  else{
-    alert('incorrect password')
-  }
-  }
-  else{
-    alert('user does not exist')
-  }
-  
-    alert('login clicked')
-  }
-// acnumchange(event:any){
-  // these two mwthhods are for event binding not needed for template reference variable
-//   // we have specify datatype so it is given any and dollar is not required here in input
-  
-//   this.acno=event.target.value
-
-//   // console.log(event.target.value);
-//   // the value we need is inside the key event inside the target
-//   // 4-11-22 -- 1 hr
-  
-// }
-// pswchange(event:any){
-//   this.psw=event.target.value
-// // we now both pass and acno inputted by user,password in this.psw and acno in this.acno
-// }
+  alert('login clicked')
+}
 }

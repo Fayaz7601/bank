@@ -1,0 +1,24 @@
+<div id="q1" class="p-3 mb-2 bg-secondary  text-white border-danger  container mt-5 w-50 p-3">
+    <h1 class="text-center">REGISTRATION FORM</h1>
+    <form action="">
+        <div class="mt-2 pt-3">
+            <label for="u1"></label>
+            <input [(ngModel)]="uname" id="acname" type="text" name="acno"  class="form-control" placeholder="USERNAME">      
+        </div>
+        <div class="mt-2 pt-3">
+            <label for="u1"></label>
+            <input [(ngModel)]="acno" id="acid" type="text" name="acno"  class="form-control" placeholder="ACCOUNT NUMBER">      
+        </div>
+        <div class="mt-2 pt-3">
+            <label for="p1"></label>
+            <input [(ngModel)]="psw" id="pid" type="password" name="psw"  class="form-control" placeholder="PASSWORD">
+        </div>
+        <div class="text-center mt-2 pt-3">
+            <button  type="submit" (click)="register()" class="btn btn-success ">REGISTER</button>
+        </div><br>
+         
+        
+
+
+    </form>
+</div>
