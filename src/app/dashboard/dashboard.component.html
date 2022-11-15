@@ -1,1 +1,50 @@
-<p>dashboard works!</p>
+<div><h2 class="text-center texy-dark">Welcome {{user}}</h2></div>
+<div style="border-radius: 50px" class="p=3 bg-white w-25 ms-3 text-center border border-info"><a style="text-decoration:none" routerLink="/transaction">view transaction history</a></div>
+<!-- since we are in dashboard,which is already in a path,so we cant give path from there,so give /transcation to go to transcation for more watch 11-11 from 23 mins -->
+<div id="q1" class="p-3 mb-2 bg-light  text-dark border-dark  container mt-4 w-50 p-3">
+    <h1 class="text-center">DEPOSIT </h1>
+    <form (ngSubmit)="deposit()"  action="">
+        <div class="mt-2 pt-3">
+            <label for="u1"></label>
+            <input [(ngModel)]="acno" id="acname" type="text" name="acno"  class="form-control" placeholder="ACCOUNT NUMBER">      
+        </div>
+      
+        <div class="mt-2 pt-3">
+            <label for="p1"></label>
+            <input [(ngModel)]="psw" id="pid" type="password" name="psw"  class="form-control" placeholder="PASSWORD">
+        </div>
+        <div class="mt-2 pt-3">
+            <label for="u1"></label>
+            <input [(ngModel)]="amt" id="acid" type="text" name="acno"  class="form-control" placeholder="AMOUNT">      
+        </div>
+        <div class="text-center mt-2 pt-3">
+            <button  type="submit"  class="btn btn-success ">DEPOSIT</button>
+        </div><br>
+
+    </form>
+</div>
+<div id="q1" class="p-3 mb-2 bg-light  text-dark border-dark  container mt-4 w-50 p-3">
+    <h1 class="text-center">WITHDRAW</h1>
+    <form  (ngSubmit)="withdraw()" action="">
+        <div class="mt-2 pt-3">
+            <label for="u1"></label>
+            <input [(ngModel)]="acno1" id="acname" type="text" name="acno"  class="form-control" placeholder="ACCOUNT NUMBER">      
+        </div>
+        <div class="mt-2 pt-3">
+            <label for="p1"></label>
+            <input [(ngModel)]="psw1" id="pid" type="password" name="psw"  class="form-control" placeholder="PASSWORD">
+        </div>
+        <div class="mt-2 pt-3">
+            <label for="u1"></label>
+            <input [(ngModel)]="amt1" id="acid" type="text" name="acno"  class="form-control" placeholder="AMOUNT">      
+        </div>
+       
+        <div class="text-center mt-2 pt-3">
+            <button  type="submit"  class="btn btn-danger ">WITHDRAW</button>
+        </div><br>
+         
+        
+
+
+    </form>
+</div>
