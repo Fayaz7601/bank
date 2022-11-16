@@ -9,6 +9,9 @@ export class DataService {
   // so we have to store the data at time of login in to a variable
   currentuser:any
   // balance in dashboard()
+
+  currentacno:any
+  // to store acno of the person logging in
   
 
   // redundant data
@@ -46,10 +49,11 @@ export class DataService {
     // logic for login page like registrtaion given above
     // call this logic in login
     var userdetails=this.userdetails
-    this.userdetails=userdetails[acno]['username']
+    this.currentuser=userdetails[acno]['username']
 
     if (acno in userdetails) {
       if (psw == userdetails[acno]['password']) {
+        this.currentacno=acno
         return true
 
       }
@@ -73,6 +77,9 @@ export class DataService {
     if (acno in userdetails) {
       if (psw == userdetails[acno]['password']) {
         userdetails[acno]['balance'] += amount
+
+        // add deposit details in tranasction array   11-11-22  33mins
+        userdetails[acno]['transaction'].push({type:'CREDIT',amount})
         return userdetails[acno]['balance']
       }
       else {
@@ -93,6 +100,9 @@ export class DataService {
       if (psw1==userdetails[acno1]['password']) {
         if (amount<=userdetails[acno1]['balance']){
           userdetails[acno1]['balance']-=amount
+
+          userdetails[acno1]['transaction'].push({type:'DEBIT',amount})
+
           return userdetails[acno1]['balance']
         }
         else{
@@ -111,5 +121,10 @@ export class DataService {
       alert('incorrect username')
       return false
     }
+  }
+
+  gettransaction(acno:any){
+    return this.userdetails[acno]['transaction']
+
   }
 }

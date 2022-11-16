@@ -59,3 +59,10 @@ if we need to give link in any path we use router link          [eg in login.htm
      to store datas (redundant datas) [datas that are always in need]
 
   to create a servce : ng g s servicename 
+
+
+  
+  ANGULAR DIRECTIVES   (11-11 in app from 1ht 7 min)
+
+    -structural directive -to get data from an array,can aplly datas directlt from array
+                          -ngFor instead of for loop,used inside html

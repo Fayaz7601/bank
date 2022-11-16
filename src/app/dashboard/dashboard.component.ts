@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   amt1: any
 
 
-  constructor(private ds: DataService) {
+  constructor(private ds:DataService) {
     this.user=this.ds.currentuser
    }
 

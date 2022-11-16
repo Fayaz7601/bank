@@ -1,3 +1,4 @@
+<h1>t</h1>
 <div style="border-radius:40px; background: rgba(234, 241, 216, 0.466);" class="container w-50 p-5 mt-5">
     <h3 class="text-center text-secondary p-3">Transaction History</h3>
     <table class="border bg-light w-100 text-center">
@@ -8,14 +9,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="border border-dark" >
-                <td class="border border-dark">Credit</td>
-                <td class="border border-dark">500</td>
+            <!-- applyin ngFor    -->
+            <!-- watch video 11-11 from 1hr 8 mins -->
+            <tr *ngFor="let i of transactions" class="border border-dark" >
+                <td class="border border-dark">{{i.type}}</td>
+                <td class="border border-dark">{{i.amount}}</td>
             </tr>
-            <tr class="border border-dark">
-                <td class="border border-dark">Debit</td>
-                <td class="border border-dark">200</td>
-            </tr>
+          
         </tbody>
     </table>
 </div>    
