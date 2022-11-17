@@ -1,23 +1,30 @@
-<div><h2 class="text-center">{{aim}}</h2></div>
+<div>
+    <h2 class="text-center">{{aim}}</h2>
+</div>
 <div id="q1" class="p-3 mb-2  text-white   container mt-5 w-25 p-3">
     <h1 class="text-center">LOGIN</h1>
-    <form (ngSubmit)="login()" action="">
+    <form [formGroup]="loginform" (ngSubmit)="login()" action="">
         <!-- ngsubmit is an event like click ,when enter is pressed it activates no need to click on login -->
         <!-- the button type must be submit -->
         <div class="mt-2 pt-3">
             <label for="u1"></label>
-            <input [(ngModel)]="acno" id="acid" type="text" name="acno"  class="form-control" [placeholder]="data">      
+            <input formControlName="acno" id="acid" type="text" name="acno" class="form-control" [placeholder]="data">
         </div>
+        <div *ngIf="this.loginform.get('acno')?.errors && this.loginform.get('acno')?.touched"><p style="color: red;">invalid data</p></div>
+
         <div class="mt-2 pt-3">
             <label for="p1"></label>
-            <input [(ngModel)]="psw" id="pid" type="password" name="psw"  class="form-control" placeholder="password">
+            <input formControlName="psw" id="pid" type="password" name="psw" class="form-control"
+                placeholder="password">
         </div>
+        <div *ngIf="this.loginform.get('psw')?.errors && this.loginform.get('psw')?.touched"><p style="color: red;">invalid data</p></div>
+
         <div class="text-center mt-2 pt-3">
-            <button  type="submit"  class="btn btn-success ">login</button>
+            <button type="submit" class="btn btn-success ">login</button>
         </div><br>
-        <div class="text-center">Not Registered? <a class="text-danger" routerLink="register" >Register here</a></div>
-         
-        
+        <div class="text-center">Not Registered? <a class="text-danger" routerLink="register">Register here</a></div>
+
+
 
 
     </form>

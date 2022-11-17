@@ -1,18 +1,25 @@
 <div id="q1" class="p-3 mb-2 bg-secondary  text-white border-danger  container mt-5 w-50 p-3">
     <h1 class="text-center">REGISTRATION FORM</h1>
-    <form (ngSubmit)="register()"  action="">
+    <!-- to apply modelform to tempate he event used is formgroup -->
+    <form [formGroup]="registerform" (ngSubmit)="register()"  action="">
         <div class="mt-2 pt-3">
             <label for="u1"></label>
-            <input [(ngModel)]="uname" id="acname" type="text" name="acno"  class="form-control" placeholder="USERNAME">      
+            <!-- form controlname 15-11 35 mins -->
+            <input formControlName="uname" id="acname" type="text" name="acna"  class="form-control" placeholder="USERNAME">      
         </div>
+        <div *ngIf="this.registerform.get('uname')?.errors && this.registerform.get('uname')?.touched"><p style="color: red;">invalid data</p></div>
         <div class="mt-2 pt-3">
             <label for="u1"></label>
-            <input [(ngModel)]="acno" id="acid" type="text" name="acno"  class="form-control" placeholder="ACCOUNT NUMBER">      
+            <input formControlName="acno" id="acid" type="text" name="acno"  class="form-control" placeholder="ACCOUNT NUMBER">      
         </div>
+        <div *ngIf="this.registerform.get('acno')?.errors && this.registerform.get('acno')?.touched"><p style="color: red;">invalid data</p></div>
+
         <div class="mt-2 pt-3">
             <label for="p1"></label>
-            <input [(ngModel)]="psw" id="pid" type="password" name="psw"  class="form-control" placeholder="PASSWORD">
+            <input formControlName="psw" id="pid" type="password" name="psw"  class="form-control" placeholder="PASSWORD">
         </div>
+        <div *ngIf="this.registerform.get('psw')?.errors && this.registerform.get('psw')?.touched"><p style="color: red;">invalid data</p></div>
+
         <div class="text-center mt-2 pt-3">
             <button  type="submit"  class="btn btn-success ">REGISTER</button>
         </div><br>

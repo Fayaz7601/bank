@@ -13,6 +13,7 @@ export class TransactionComponent implements OnInit {
 
   constructor(private ds:DataService) {
      
+    // transaction video 11-11
     this.useracno=this.ds.currentacno
     this.transactions=this.ds.gettransaction(this.useracno)
     

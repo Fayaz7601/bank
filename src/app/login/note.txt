@@ -66,3 +66,28 @@ if we need to give link in any path we use router link          [eg in login.htm
 
     -structural directive -to get data from an array,can aplly datas directlt from array
                           -ngFor instead of for loop,used inside html
+
+
+
+
+  FORM VALIDATION IN ANGULAR
+
+      1.template driven form- first create html from and then apply validation [this is very difficult]
+
+      2.model driven form   -we create a model of the form in ts we need and then we apply validation           
+
+               ReactiveFormsModule-it is a module used for creating modelform                  
+               formBuilder - class in reactiveform form modelform creation
+
+                    a model form contains
+                                     -form group
+                                     -array
+                                     -controller
+                                                 
+
+       this.registerform.get('uname')?.errors          
+       can acees the o/p of regular attribute
+
+       if it matches with content  ---empty
+       not matching  [error]              ---content         
+                            

@@ -125,6 +125,7 @@ export class DataService {
 
   gettransaction(acno:any){
     return this.userdetails[acno]['transaction']
+    // to under transaction video 11-11
 
   }
 }
