@@ -91,3 +91,30 @@ if we need to give link in any path we use router link          [eg in login.htm
        if it matches with content  ---empty
        not matching  [error]              ---content         
                             
+
+
+
+   LOCAL STORAGE IN ANGULAR
+   
+       -setItem-to store data
+       -getItem-to get data 
+       -removeItem-to delete data
+
+
+  
+  PARENT CHILD COMMUNICATION
+
+        parent -> child
+        child  -> parent
+
+  eg: 
+      parent is dashboard
+      child is delete
+
+
+
+
+ AMGULAR PIPES
+
+   date PIPES
+    {{value_expression | date [ :format [ :timezone [ :locale ]]] }}

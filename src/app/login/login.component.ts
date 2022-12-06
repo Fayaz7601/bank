@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
 
 
   // constructor is used to initialize oject at the time of creating,that is in this class first constuctor will work then  ngoninit() only then what we create will work
-  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) { }
+  constructor(private router: Router, private ds: DataService, private fb: FormBuilder) {
+    
+   }
 
   loginform = this.fb.group({
     acno: ['', [Validators.required, Validators.pattern('[0-9]+')]],

@@ -26,7 +26,33 @@ export class DataService {
   // all the logic[code]that has direct connection[add,delete,etc] with database is creted in side Dataservice
   // 8-11-22  [from 1hr 10 mins]
 
-  constructor() { }
+  constructor() { this.getdata() }
+   
+  savedata(){
+    if(this.userdetails){
+      localStorage.setItem('database',JSON.stringify(this.userdetails))
+    }
+    if(this.currentuser){
+      localStorage.setItem('currentuser',JSON.stringify(this.currentuser))
+    }
+    if(this.currentacno){
+      localStorage.setItem('currentacno',JSON.stringify(this.currentacno))
+    }
+  }
+
+  getdata(){
+    if(localStorage.getItem('database')){
+      this.userdetails=JSON.parse(localStorage.getItem('database') || '')
+    }
+    if(localStorage.getItem('currentuser')){
+      this.currentuser=JSON.parse(localStorage.getItem('currentuser') || '')
+    }
+    if(localStorage.getItem('currentacno')){
+      this.currentacno=JSON.parse(localStorage.getItem('currentacno') || '')
+    }
+  }
+  
+
 
   register(acno: any, username: any, password: any) {
     //  these acno,username,pass are coming from the input box of registration page [user input]
@@ -40,9 +66,12 @@ export class DataService {
       // we have to add the details to the database
       // first add the acno,since key and value are same here ust give directly as shown,now acno,name and pass will add
       userdetails[acno] = { acno, username, password, balance: 0,transaction:[] }
+
+      this.savedata()
       return true
       // now call it in register ts file
     }
+    
   }
 
   login(acno: any, psw: any) {
@@ -54,6 +83,7 @@ export class DataService {
     if (acno in userdetails) {
       if (psw == userdetails[acno]['password']) {
         this.currentacno=acno
+        this.savedata()
         return true
 
       }
@@ -80,6 +110,7 @@ export class DataService {
 
         // add deposit details in tranasction array   11-11-22  33mins
         userdetails[acno]['transaction'].push({type:'CREDIT',amount})
+        this.savedata()
         return userdetails[acno]['balance']
       }
       else {
@@ -102,7 +133,7 @@ export class DataService {
           userdetails[acno1]['balance']-=amount
 
           userdetails[acno1]['transaction'].push({type:'DEBIT',amount})
-
+              this.savedata()
           return userdetails[acno1]['balance']
         }
         else{

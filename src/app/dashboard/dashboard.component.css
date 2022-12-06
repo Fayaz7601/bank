@@ -1,0 +1,8 @@
+#v1{
+    text-align: end;
+}
+.style1{
+
+    /* div of deposit and withrdaw will diasapper when delete is pressed,code in div */
+    opacity: 0;
+}

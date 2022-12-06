@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -20,12 +21,19 @@ export class DashboardComponent implements OnInit {
   psw1: any
   amt1: any
 
+  sdate:any
 
-  constructor(private ds:DataService) {
+  constructor(private ds:DataService,private router:Router) {
     this.user=this.ds.currentuser
+    this.sdate=new Date();
    }
 
   ngOnInit(): void {
+    // after logiut if we click back button it does not go back to dashboard,instead it stays in login page
+    if(!localStorage.getItem('currentacno')){
+      alert('please login first')
+      this.router.navigateByUrl('')
+    }
   }
 
   deposit() {
@@ -55,5 +63,19 @@ export class DashboardComponent implements OnInit {
       alert(`${amt1} is debited in your account and the balance is ${result}`)
     }
 
+  }
+
+  logout(){
+    localStorage.removeItem('currentuser')
+    localStorage.removeItem('currentacno')
+
+    this.router.navigateByUrl('')
+  }
+  delete(){
+    // parent-child dec 5
+    this.acno=JSON.parse(localStorage.getItem('currentacno')||'');
+  }
+  onCancel(){
+    this.acno=""
   }
 }
